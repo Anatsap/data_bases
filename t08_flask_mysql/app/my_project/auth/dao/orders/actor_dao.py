@@ -17,7 +17,6 @@ class ActorDAO(GeneralDAO):
         session = db.session
         movies = session.query(Movie).join(MovieActor).filter(MovieActor.actor_id == actor_id).all()
         return movies
-    
 
     def find_by_nationality(self, nationality_name: str) -> List[Actor]:
         return db.session.query(Actor).filter(Actor.nationality == nationality_name).all()

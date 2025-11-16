@@ -14,3 +14,6 @@ class MovieService(GeneralService):
 
     def add_actor_to_movie(self, movie_id: int, actor_id: int, character_name: str) -> None:
         self._dao.add_actor_to_movie(movie_id, actor_id, character_name)
+
+    def delete(self, movie_id: int) -> None:
+        self._dao.delete(movie_id)

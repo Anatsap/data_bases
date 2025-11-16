@@ -1,11 +1,13 @@
-"""
-2022
-apavelchak@gmail.com
-© Andrii Pavelchak
-"""
 
-from .orders.client_controller import ClientController
-from .orders.client_type_controller import ClientTypeController
+from .orders.actor_controller import ActorController
+from .orders.movie_controller import MovieController
+from .orders.review_controller import ReviewController
+from .orders.country_controller import CountryController
+from .orders.genre_controller import GenreController
 
-client_controller = ClientController()
-client_type_controller = ClientTypeController()
+actor_controller = ActorController()
+actor_controller = MovieController()
+review_controller = ReviewController()
+country_controller = CountryController()
+genre_controller = GenreController()
+

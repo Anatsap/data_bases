@@ -14,18 +14,12 @@ class MovieDAO(GeneralDAO):
         session = db.session
         actors = session.query(Actor).join(MovieActor).filter(MovieActor.movie_id == movie_id).all()
         return actors
+    
+    # def find_reviews_by_movie_id(self, movie_id: int):
+    #     from t08_flask_mysql.app.my_project.auth.domain.orders.review import Review
+    #     session = db.session
+    #     reviews = session.query(Review).filter(Review.movie_id == movie_id).all()
+    #     return reviews
 
-    def add_actor_to_movie(self, movie_id: int, actor_id: int, character_name: str) -> None:
-        session = db.session
-        new_link = MovieActor(movie_id=movie_id, actor_id=actor_id, character_name=character_name)
-        session.add(new_link)
-        session.commit()
-
-    def find_reviews_by_movie_id(self, movie_id: int):
-        from t08_flask_mysql.app.my_project.auth.domain.orders.review import Review
-        session = db.session
-        reviews = session.query(Review).filter(Review.movie_id == movie_id).all()
-        return reviews
-
-    def find_by_release_year(self, year: int) -> List[Movie]:
-        return db.session.query(Movie).filter(Movie.release_year == year).all()
+    # def find_by_release_year(self, year: int) -> List[Movie]:
+    #     return db.session.query(Movie).filter(Movie.release_year == year).all()
