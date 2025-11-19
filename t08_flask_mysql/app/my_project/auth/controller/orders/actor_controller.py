@@ -1,7 +1,8 @@
 
-from typing import List, Dict, Any
-from t08_flask_mysql.app.my_project.auth.service import actor_service 
-from t08_flask_mysql.app.my_project.auth.controller.general_controller import GeneralController
+from typing import List, Dict, Any, Optional
+from my_project.auth.service.orders import actor_service
+from my_project.auth.controller.general_controller import GeneralController
+
 
 
 class ActorController(GeneralController):

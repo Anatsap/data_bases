@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
-from t08_flask_mysql.app.my_project.auth.service import country_service 
-from t08_flask_mysql.app.my_project.auth.controller.general_controller import GeneralController
+from my_project.auth.service.orders import country_service 
+from my_project.auth.controller.general_controller import GeneralController
 
 
 class CountryController(GeneralController):

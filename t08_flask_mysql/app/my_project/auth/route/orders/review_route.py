@@ -3,8 +3,9 @@ from http import HTTPStatus
 
 from flask import Blueprint, jsonify, Response, request, make_response
 
-from t08_flask_mysql.app.my_project.auth.controller import review_controller
-from t08_flask_mysql.app.my_project.auth.domain import Review
+from my_project.auth.controller import review_controller
+from my_project.auth.domain.orders.review import Review
+
 
 review_bp = Blueprint('reviews', __name__, url_prefix='/reviews')
 

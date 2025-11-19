@@ -1,19 +1,20 @@
 from __future__ import annotations
 from typing import Dict, Any
-from t08_flask_mysql.app.my_project import db
-from t08_flask_mysql.app.my_project.auth.domain.i_dto import IDto
+from my_project import db
+from my_project.auth.domain.i_dto import IDto
 from sqlalchemy.orm import relationship
+from sqlalchemy import Numeric
 
 class Review(db.Model, IDto):
     __tablename__ = "reviews"
 
     review_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_name = db.Column(db.String(45), nullable=False)
-    rating = db.Column(db.DECIMAL(3, 1), nullable=False)
+    rating = db.Column(Numeric(3, 1))
     comment = db.Column(db.Text)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id'), nullable=False)
     
-    movie = relationship("Movie", back_populates="reviews") 
+    movie = db.relationship("Movie", back_populates="reviews") 
 
     def put_into_dto(self) -> Dict[str, Any]:
         return {

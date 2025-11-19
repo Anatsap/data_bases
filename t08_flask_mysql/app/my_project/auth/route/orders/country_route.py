@@ -1,8 +1,9 @@
 from http import HTTPStatus
 
 from flask import Blueprint, jsonify, Response, request, make_response
-from t08_flask_mysql.app.my_project.auth.controller import country_controller
-from t08_flask_mysql.app.my_project.auth.domain import Country 
+from my_project.auth.controller import country_controller
+from my_project.auth.domain.orders.country import Country
+
 
 
 country_bp = Blueprint('countries', __name__, url_prefix='/countries')

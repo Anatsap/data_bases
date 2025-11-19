@@ -1,9 +1,7 @@
-
 from typing import List, Dict, Any
-from t08_flask_mysql.app.my_project.auth.service.general_service import GeneralService
-from t08_flask_mysql.app.my_project.auth.dao.orders import movie_dao
-from t08_flask_mysql.app.my_project.auth.domain.orders.movie import Movie
-from t08_flask_mysql.app.my_project.auth.domain.orders.actor import Actor 
+from my_project.auth.service.general_service import GeneralService
+from my_project.auth.dao.orders.movie_dao import movie_dao
+from my_project.auth.domain.orders.actor import Actor
 
 class MovieService(GeneralService):
     _dao = movie_dao
@@ -17,3 +15,5 @@ class MovieService(GeneralService):
 
     def delete(self, movie_id: int) -> None:
         self._dao.delete(movie_id)
+
+movie_service = MovieService()

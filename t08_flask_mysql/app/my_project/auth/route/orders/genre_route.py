@@ -3,8 +3,9 @@ from http import HTTPStatus
 
 from flask import Blueprint, jsonify, Response, request, make_response
 
-from t08_flask_mysql.app.my_project.auth.controller import genre_controller
-from t08_flask_mysql.app.my_project.auth.domain import Genre
+from my_project.auth.controller import genre_controller
+from my_project.auth.domain.orders.genre import Genre
+
 
 genre_bp = Blueprint('genres', __name__, url_prefix='/genres')
 

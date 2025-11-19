@@ -1,9 +1,11 @@
 
 from __future__ import annotations
 from typing import Dict, Any
-from t08_flask_mysql.app.my_project import db
-from t08_flask_mysql.app.my_project.auth.domain.i_dto import IDto
+from my_project import db
+from my_project.auth.domain.i_dto import IDto
 from sqlalchemy.orm import relationship
+from sqlalchemy import Numeric
+
 
 class Movie(db.Model, IDto):
     __tablename__ = "movies"
@@ -14,10 +16,10 @@ class Movie(db.Model, IDto):
     duration = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text)
     imdb_code = db.Column(db.String(30), nullable=False)
-    rating = db.Column(db.Decimal(3, 1))
+    rating = db.Column(Numeric(3, 1))
 
-    actors_link = relationship("MovieActor", back_populates="movie")
-    box_office_data = relationship("BoxOffice", back_populates="movie")
+    actors_link = db.relationship("MovieActor", back_populates="movie")
+    box_office_data = db.relationship("BoxOffice", back_populates="movie")
     
     def __repr__(self) -> str:
         return f"Movie(id={self.movie_id}, title='{self.title}', release_year={self.release_year}, duration={self.duration}, description={self.description}, imdb_code={self.imdb_code}, rating={self.rating})"

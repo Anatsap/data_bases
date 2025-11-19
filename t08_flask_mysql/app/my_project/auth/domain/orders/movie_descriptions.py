@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Dict, Any
-from t08_flask_mysql.app.my_project import db
-from t08_flask_mysql.app.my_project.auth.domain.i_dto import IDto
+from my_project import db
+from my_project.auth.domain.i_dto import IDto
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, ForeignKey, Text, String
 
@@ -13,7 +13,7 @@ class MovieDescriptions(db.Model, IDto):
     keyword = db.Column(db.String(100))
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id'), unique=True, nullable=False)
     
-    movie = relationship("Movie", back_populates="description_link") 
+    movie = db.relationship("Movie", back_populates="description_link") 
 
     def put_into_dto(self) -> Dict[str, Any]:
         return {

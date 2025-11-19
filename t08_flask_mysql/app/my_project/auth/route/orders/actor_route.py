@@ -3,8 +3,9 @@ from http import HTTPStatus
 
 from flask import Blueprint, jsonify, Response, request, make_response
 
-from t08_flask_mysql.app.my_project.auth.controller import actor_controller
-from t08_flask_mysql.app.my_project.auth.domain import Actor
+from my_project.auth.controller import actor_controller
+from my_project.auth.domain.orders.actor import Actor
+
 
 actor_bp = Blueprint('actors', __name__, url_prefix='/actors')
 
@@ -56,7 +57,6 @@ def get_actor_movies(actor_id: int) -> Response:
 def get_actors_nationality(nationality: str) -> Response:
     nat_data = actor_controller.get_actor_by_nationality_route(nationality)
     return make_response(jsonify(nat_data), HTTPStatus.OK)
-
 
 
 

@@ -10,7 +10,7 @@ from typing import List
 from sqlalchemy import inspect
 from sqlalchemy.orm import Mapper
 
-from t08_flask_mysql.app.my_project import db
+from my_project import db
 
 
 class GeneralDAO(ABC):

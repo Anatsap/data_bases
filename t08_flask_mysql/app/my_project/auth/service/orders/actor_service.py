@@ -1,10 +1,11 @@
 
-from typing import List, Dict, Any
-from t08_flask_mysql.app.my_project.auth.service.general_service import GeneralService
-from t08_flask_mysql.app.my_project.auth.dao.orders import actor_dao
-from t08_flask_mysql.app.my_project.auth.domain.orders.actor import Actor
-from t08_flask_mysql.app.my_project.auth.domain.orders.movie import Movie
 from typing import List, Dict, Any, Optional
+
+from my_project.auth.service.general_service import GeneralService
+from my_project.auth.dao.orders.actor_dao import actor_dao
+from my_project.auth.domain.orders.actor import Actor
+from my_project.auth.domain.orders.movie import Movie
+
 
 class ActorService(GeneralService):
     _dao = actor_dao
@@ -17,14 +18,16 @@ class ActorService(GeneralService):
         actors_list: List[Actor] = self._dao.find_by_nationality(nationality)
         return [actor.put_into_dto() for actor in actors_list]
 
-    def remove_actor_from_movie(self, movie_id: int, actor_id: int) -> None:
-        self._dao.remove_actor_from_movie(movie_id, actor_id)
+    # def remove_actor_from_movie(self, movie_id: int, actor_id: int) -> None:
+    #     self._dao.remove_actor_from_movie(movie_id, actor_id)
         
-    def add_movie_to_actor(self, actor_id: int, movie_id: int, character_name: str, billing_order: Optional[int] = None) -> None:
-        self._dao.add_movie_to_actor(actor_id, movie_id, character_name, billing_order)
+    # def add_movie_to_actor(self, actor_id: int, movie_id: int, character_name: str, billing_order: Optional[int] = None) -> None:
+    #     self._dao.add_movie_to_actor(actor_id, movie_id, character_name, billing_order)
 
     def delete(self, actor_id: int):
         self._dao.delete(actor_id)
+
+actor_service = ActorService()
 
 
 

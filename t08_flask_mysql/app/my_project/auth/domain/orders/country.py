@@ -1,6 +1,6 @@
 
-from t08_flask_mysql.app.my_project.auth import db
-from t08_flask_mysql.app.my_project.auth.domain.i_dto import IDto
+from my_project import db
+from my_project.auth.domain.i_dto import IDto
 from typing import Dict, Any
 from sqlalchemy.orm import relationship
 

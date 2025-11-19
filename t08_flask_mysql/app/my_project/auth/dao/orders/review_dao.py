@@ -1,9 +1,9 @@
 
 from typing import List, Optional
-from t08_flask_mysql.app.my_project import db
-from t08_flask_mysql.app.my_project.auth.dao.general_dao import GeneralDAO
-from t08_flask_mysql.app.my_project.auth.domain.orders.review import Review
-from t08_flask_mysql.app.my_project.auth.domain.orders.movie import Movie
+from my_project import db
+from my_project.auth.dao.general_dao import GeneralDAO
+from my_project.auth.domain.orders.review import Review
+from my_project.auth.domain.orders.movie import Movie
 
 
 class ReviewDAO(GeneralDAO):
@@ -18,3 +18,5 @@ class ReviewDAO(GeneralDAO):
             return movie
         
         return None
+    
+review_dao = ReviewDAO()

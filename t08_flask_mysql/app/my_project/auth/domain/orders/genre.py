@@ -1,7 +1,7 @@
 from __future__ import annotations
 from typing import Dict, Any
-from t08_flask_mysql.app.my_project import db
-from t08_flask_mysql.app.my_project.auth.domain.i_dto import IDto
+from my_project import db
+from my_project.auth.domain.i_dto import IDto
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String
 

@@ -1,11 +1,10 @@
-
-
-from t08_flask_mysql.app.my_project.auth.service.general_service import GeneralService
-from t08_flask_mysql.app.my_project.auth.dao.orders import genre_dao
-from t08_flask_mysql.app.my_project.auth.domain.orders.genre import Genre
-from t08_flask_mysql.app.my_project.auth.domain.orders.movie import Movie
-
 from typing import List, Dict, Any, Optional
+
+from my_project.auth.service.general_service import GeneralService
+from my_project.auth.dao.orders.genre_dao import genre_dao
+from my_project.auth.domain.orders.genre import Genre
+from my_project.auth.domain.orders.movie import Movie
+
 
 
 class GenreService(GeneralService):
@@ -18,3 +17,5 @@ class GenreService(GeneralService):
 
     def delete(self, genre_id: int) -> None:
         self._dao.delete(genre_id)
+
+genre_service = GenreService()
